@@ -18,8 +18,7 @@ def histogram():
             time_data.append(float(line.rstrip()))
 
     plt.hist(bins=[x / 2 for x in range(int(2 * min(time_data)), int(2 * max(time_data)))], x=time_data, color="red",
-             rwidth=.6, label="solve time", range=.5)
-    plt.legend()
+             rwidth=.6, range=.5)
     plt.title("Histogram of solves")
     plt.ylabel("# of solves in group")
     plt.xlabel("Solve time (.5 second steps)")

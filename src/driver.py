@@ -1,4 +1,4 @@
-import bargraph as bg
+import histogram as bg
 import linegraphwithaverage as lg
 import matplotlib.pyplot as plt
 
