@@ -1,7 +1,8 @@
 import matplotlib.pyplot as plt
 import statistics as stat
+import sys
 
-CUBE_TIMES = "cubetimes.txt"
+CUBE_TIMES = sys.argv[1]
 time_data = []
 bins = []
 
@@ -10,7 +11,7 @@ for i in range(40, 90):
     bins.append(i/2)
 
 
-def main():
+def histogram():
     #import data as float into time_data
     with open(CUBE_TIMES) as filestream:
         for line in filestream:
@@ -22,7 +23,6 @@ def main():
     plt.title("Histogram of solves")
     plt.ylabel("# of solves in group")
     plt.xlabel("Solve time (.5 second steps)")
-    plt.show()
 
     print("Fastest time: %.3f" % min(time_data))
     print("Slowest time: % .3f" % max(time_data))
@@ -33,4 +33,3 @@ def main():
     print("Standard Deviation: %.3f" % stat.stdev(time_data))
     print("Median: %.3f" % (time_data[len(time_data) // 2]))
 
-main()
