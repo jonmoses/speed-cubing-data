@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 
 # Set up variables
 AVERAGE_LENGTH = eval(input("Enter the length of rolling average: "))
+
 timesdoc = "cubetimes.txt"
 timeslist = []
 averagetimelist = []
@@ -27,7 +28,8 @@ for i in range(len(timeslist)):
     rollingavertimetoappend = timeslist[i]
     rollingaveragelist10.append(rollingavertimetoappend)
 
-    # calculates average of past AVERAGE_LENGTH number of solves and assigns it to a variable
+    # calculates average of past AVERAGE_LENGTH number
+    # of solves and assigns it to a variable
     # Then it appends average to averagetimelist
     for e in rollingaveragelist10:
         average += e
@@ -35,14 +37,18 @@ for i in range(len(timeslist)):
     averagetimelist.append(average)
 
 # create line graph of average times and scatter plot of solves
-plt.scatter(range(len(timeslist)), timeslist, color='blue', s=4, label="solve")
-plt.plot(range(len(averagetimelist)), averagetimelist, linewidth=2.0, color='red', label="average")
+plt.scatter(range(len(timeslist)), timeslist,
+            color='blue', s=4, label="solve")
+plt.plot(range(len(averagetimelist)), averagetimelist,
+         linewidth=2.0, color='red', label="average")
 
 # labels
 plt.ylabel("Time (in seconds)")
-plt.xlabel("solve #")
-plt.title("My rolling average solve time")
+plt.xlabel("Solve #")
+plt.title("Rolling average solve time")
 
 # display
 plt.legend()
 plt.show()
+
+
